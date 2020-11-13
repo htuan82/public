@@ -2948,7 +2948,10 @@ TAB T=1
     }
     static XID (e, prefix = null) {
         var xid = rand_string(32);
-        var ee = IIM.$(e);              console.log("ee", ee, typeof ee, ee.attr('xid'))
+        var ee = IIM.$(e);              
+        
+        // console.log("ee", ee, typeof ee, ee.attr('xid'))
+        
         if (typeof ee !== 'object') return null;
         if (ee.attr('xid') != null) return ee.attr('xid');
         ee.attr('xid', prefix != null ? prefix + "_" + xid : xid);
@@ -3224,6 +3227,7 @@ $$$ = (class $$$ { // 2020
         do: () => {
             return new $$$()
                 .try(n, x => { return new $$$()
+                    .iim_fill(e, "")
                     .jfill(e, "")
                     .delay(0.1)
                     .efill(e, value)
@@ -3278,6 +3282,7 @@ $$$ = (class $$$ { // 2020
                     process.delay( delay );
                     process.reload_$();
                     if (wait != null) process.wait( wait, timeout );
+                    process.delay(0.1)
                     return process.go();
                 }, dd)
                 .wait( wait, timeout )
@@ -7629,4 +7634,4 @@ aiGmailOLD = (class aiGmailOLD extends AI200 {
     }
 })
 console.log("aio_300 is loaded (15) modules !");
-//--- loaded from cached ---//
+//--- new cached ---//
